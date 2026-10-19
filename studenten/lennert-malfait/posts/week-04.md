@@ -2,11 +2,11 @@
 
 ## Mijn tool in cijfers
 
-Mijn tool sorteert een Outlook-bericht in `doen`, `lezen`, `negeren` of `herhaling`. In de eerste v2-run waren 9 van 10 inputs juist (n = 10, 1 run). De enige fout was T01, een F1-fout: een aanbeveling om een laptop mee te brengen werd als verplichte actie gelezen. Na één gerichte regel en een voorbeeld in v3 gaf de tool voor T01 het juiste label `lezen` (1 op 1, n = 1, 1 run). Daarna heb ik v3 opnieuw getest in tien aparte Codex-sessies: 10 van 10 waren juist (n = 10, 1 run). In die tweede run waren F1 tot en met F6 dus 0.
+Mijn tool sorteert een Outlook-bericht in `doen`, `lezen`, `negeren` of `herhaling`. In de eerste v2-run waren 9 van 10 inputs juist (n = 10, 1 run). De enige fout was T01, een F1-fout: een aanbeveling om een laptop mee te brengen werd als verplichte actie gelezen. Na één gerichte regel en een voorbeeld in v3 gaf de tool voor T01 het juiste label `lezen` (1 op 1, n = 1, 1 run). Daarna heb ik v3 opnieuw getest in tien aparte Codex-sessies: 10 van 10 waren juist (n = 10, 1 run). Omdat dat 10 op 10 was, voegde ik drie moeilijke, geanonimiseerde Outlook-inputs toe: dubbelzinnig, heel kort en Engels. Die extra run was 3 op 3 juist (n = 3, 1 run). In de tweede volledige run en de extra run waren F1 tot en met F6 dus 0.
 
 ## Wat kost één run?
 
-De kostenmeting staat in `build/kosten.md`. In een nieuwe Codex-sessie gaf de run 14.784 inputtokens, waarvan 6.656 cached, en 10 outputtokens. Met de cursusprijs als aanname ($0,10 per miljoen gewone inputtokens, $0,01 per miljoen cached inputtokens en $0,50 per miljoen outputtokens, omgerekend met $1 = €0,90) kost deze run ongeveer €0,00080. Bij 100 berichten per maand is dat ongeveer €0,08; bij 1.000 keer dat volume €79,59. De modelnaam was `gpt-5.6-luna`, terwijl de cursus een vergelijkbare maar anders genoemde Luna-prijs geeft. Daarom is dit een transparante schatting, geen factuurbedrag.
+De kostenmeting staat in `build/kosten.md`. In een nieuwe Codex-sessie gaf de run 14.784 inputtokens, waarvan 6.656 cached, en 10 outputtokens. Met de cursusprijs als aanname ($0,10 per miljoen gewone inputtokens, $0,01 per miljoen cached inputtokens en $0,50 per miljoen outputtokens, omgerekend met $1 = €0,90) kost deze run ongeveer €0,00080. Bij 100 berichten per maand is dat ongeveer €0,08; bij 1.000 keer dat volume €79,59. Met dezelfde tokens zou GPT-6.1 Sol ongeveer €0,01532 per run kosten, of €1,53 per maand bij 100 berichten. De modelnaam was `gpt-5.6-luna`, terwijl de cursus een vergelijkbare maar anders genoemde Luna-prijs geeft. Daarom is dit een transparante schatting, geen factuurbedrag.
 
 ## Met de hand of met de tool?
 
@@ -16,4 +16,4 @@ Ik gebruik als scenario mijn eigen studenteninbox en schat 100 berichten per maa
 
 ## Mijn zwakste cijfer
 
-Mijn zwakste cijfer is de handmatige 55 seconden. Ik heb die tijd nog niet met een chronometer gemeten. Als de echte tijd maar 30 seconden is, daalt de winst naar 17 seconden per bericht en wordt de jaarlijkse waarde ongeveer €85 bij hetzelfde volume en uurloon. Ook de testset blijft klein: twee runs van tien berichten zeggen nog weinig over alle mogelijke e-mails. De beslissing hangt dus meer af van de tijd die controle kost en van gemiste belangrijke mails dan van de kleine tokenkost. Ik zou de tool voorlopig alleen gebruiken met menselijke controle.
+Mijn zwakste cijfer is de handmatige 55 seconden. Ik heb die tijd nog niet met een chronometer gemeten. Als de echte tijd maar 30 seconden is, daalt de winst naar 17 seconden per bericht en wordt de jaarlijkse waarde ongeveer €85 bij hetzelfde volume en uurloon. Ook de testset blijft klein: een volledige run van tien en een extra run van drie moeilijke berichten zeggen nog weinig over alle mogelijke e-mails. De beslissing hangt dus meer af van de tijd die controle kost en van gemiste belangrijke mails dan van de kleine tokenkost. Ik zou de tool voorlopig alleen gebruiken met menselijke controle.
