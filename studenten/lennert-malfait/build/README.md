@@ -18,7 +18,7 @@ This tool classifies an Outlook message into exactly one category:
 
 ## How to use it
 
-Open `classifier-prompt.md` in Codex. Paste one test email into the `EMAIL` section. For a possible duplicate, paste the original email into `EARLIER EMAIL`. The response must be one JSON object containing one label.
+Open the latest prompt, currently `classifier-prompt-v3.md`, in Codex. Paste one test email into the `EMAIL` section. For a possible duplicate, paste the original email into `EARLIER EMAIL`. The response must be one JSON object containing one label.
 
 ## Duplicate rule
 
