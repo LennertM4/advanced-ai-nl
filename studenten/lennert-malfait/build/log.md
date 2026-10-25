@@ -24,3 +24,4 @@
 | 2026-10-21 | v2 | Ran the same ten-case evaluation three times with `gpt-5.6-luna`, low effort. | 8/10, 9/10 and 7/10. | Variation appeared in T04, T07 and T08. | Compare the range with v3, not only the best run. |
 | 2026-10-21 | v3 | Ran the same ten-case evaluation three times with `gpt-5.6-luna`, low effort. | 9/10, 8/10 and 7/10. | The v2 and v3 ranges overlap completely. | Withdraw the claim of a proven improvement. |
 | 2026-10-21 | v3 | Tested effort setups on the same ten cases. | Medium 8/10, low 9/10, high 8/10. | All scores fall inside the 7–9 error range; output tokens were not separately exposed. | Choose low effort provisionally on cost. |
+| 2026-10-25 | v3 | Gecontroleerde Outlook-onderwerpen gebruikt voor T11–T30; één run op T01–T30. | 19/30 correct (set v2, 1 run). | De eerdere kandidaatbeschrijvingen waren vanaf enkele mails verkeerd doorgeschoven; de onderwerpen zijn gecontroleerd en vervangen. | PR bijwerken met de set-v2-score. |
