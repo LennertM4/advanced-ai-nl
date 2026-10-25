@@ -1,21 +1,41 @@
-# Test set
+# Testset — 20 nieuwe inputs voor week 5
 
-Each expected answer is written before the tool is run. Personal information is removed or replaced.
+Deze set is op 25 oktober 2026 samengesteld uit de 20 kandidaatbeschrijvingen
+uit mijn Outlook-inbox. De tekst is geanonimiseerd en samengevat; er staan geen
+adressen, namen, links, codes of letterlijke mailteksten in. De verwachte labels
+zijn vooraf vastgelegd en nog niet door een nieuwe run bevestigd.
 
-| ID | Input | Earlier identical mail? | Expected label | Why this is the correct label | Source | Run 1 | Run 2 |
-| T01 | Onderwerp: Laptop meenemen naar les<br><br>Beste studenten,<br><br>Voor les 2 op [datum] zou het handig zijn om jullie laptop mee te brengen.<br><br>Zo niet, dan doe je de oefening met twee.<br><br>Met vriendelijke groeten,<br>Dhr. [naam] | No | lezen | The laptop is recommended, but the message says an alternative is available; no required action follows. | Own school email, anonymised | doen ✗ — F1 | lezen ✓ — v3 rerun |
-| T02 | Onderwerp: Laptop meenemen naar les<br><br>Beste studenten,<br><br>Voor les 2 op [datum] zou het handig zijn om jullie laptop mee te brengen.<br><br>Zo niet, dan doe je de oefening met twee.<br><br>Met vriendelijke groeten,<br>Dhr. [naam] | Yes — T01 | herhaling | This is the second identical copy of T01 and contains no new information. | Own school email, anonymised | herhaling ✓ | Not run |
-| T03 | Onderwerp: Studieprogramma controleren<br><br>Beste student,<br><br>[Onderwijsinstelling] heeft jouw studieprogramma aan jou overgemaakt. Geef hier zo snel mogelijk gevolg aan via [platform].<br><br>Mededeling: Je traject staat nog niet op punt. Zie voor verdere info de eerdere mail.<br><br>Bedankt voor jouw medewerking,<br>[Onderwijsinstelling] | No | doen | The student is asked to take prompt action, and the study trajectory is not yet in order. | Own school email, anonymised | doen ✓ | Not run |
-| T04 | Onderwerp: Wekelijks Canvas-rapport<br><br>Je bent aangemeld voor een wekelijks rapport over belangrijke meldingen van jouw Canvas-account. Hieronder staat het rapport voor de week die eindigt op [datum].<br><br>Opdracht aangemaakt — [naam opdracht/cursus].<br><br>Inleverdatum: geen inleverdatum.<br><br>[link verwijderd] | No | negeren | This is a routine weekly Canvas report. The student receives many of these reports and normally checks Canvas directly instead. | Own school email, anonymised | negeren ✓ | Not run |
-| T05 | Onderwerp: Activiteiten en externe opleidingen<br><br>Beste studenten,<br><br>Bekijk de activiteiten van [organisatie] via [link verwijderd]. Deze week vindt ook een business- en technologie-evenement plaats in [locatie], met sessies en masterclasses. Actieve deelname kan meetellen als externe opleiding, tot maximaal twee van de vier opleidingen.<br><br>Veel succes! | No | lezen | This is relevant information about optional activities and external education, but it contains no required action. | Own school email, anonymised | lezen ✓ | Not run |
-| T06 | Onderwerp: Herinnering: GitHub-link posten<br><br>Post de link naar je GitHub-pull-request in de juiste week op Canvas. Punten worden alleen via Canvas gegeven; zonder link in de juiste week is er geen score. | No | doen | This message requires Lennert to post a specific PR link in Canvas in time. | Own school email, anonymised | doen ✓ | Not run |
-| T07 | Onderwerp: Correctie les Frans<br><br>Vanaf deze week bestaat het eerste deel van de les uit marketing- of sociaaleconomische actualiteit; het tweede deel gaat over een ander cursusthema. | No | lezen | This is relevant information about the format of a course, but it asks for no concrete action. | Own school email, anonymised | lezen ✓ | Not run |
-| T08 | Subject: Sign up to win a Web Summit ticket<br><br>Final week to enter the challenge and compete for event tickets. | No | negeren | This is an optional external promotion, not required information or an action for Lennert. | Own inbox email, anonymised | negeren ✓ | Not run |
-| T09 | Onderwerp: Welkom bij Canva<br><br>Je account is klaar. Ontdek de functies van Canva. | No | negeren | This is an automated welcome email. It contains no action that Lennert must take and no urgent school information. | Own inbox email, anonymised | negeren ✓ | Not run |
-| T10 | Onderwerp: Herinnering: GitHub-link posten<br><br>Post de link naar je GitHub-pull-request in de juiste week op Canvas. Punten worden alleen via Canvas gegeven; zonder link in de juiste week is er geen score. | Yes — T06 | herhaling | It is the same sender, subject and message as T06, with no useful new information. | Own school email, anonymised | herhaling ✓ | Not run |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+Labels: `doen` = actie of opvolging nodig, `lezen` = relevante informatie zonder
+directe actie, `negeren` = geen nuttige actie voor deze workflow, `herhaling` =
+een tweede bericht met dezelfde kern als een eerder bericht. Bij onduidelijkheid
+gebruik ik voorlopig `negeren`, zoals in de prompt afgesproken.
 
-## Measurement
+| ID | Geanonimiseerde input | Bron/type | Verwacht label |
+| --- | --- | --- | --- |
+| W5-01 | **Onderwerp:** Extra informatie nodig voor opdracht. **Bericht:** Een externe opdrachtgever vraagt om ontbrekende gegevens en noemt een deadline. | echte inbox, werk | `doen` |
+| W5-02 | **Onderwerp:** Deadline copywriting-opdracht. **Bericht:** De opdracht moet vóór [datum] worden ingediend. | echte inbox, werk | `doen` |
+| W5-03 | **Onderwerp:** Herinnering deadline copywriting-opdracht. **Bericht:** Een tweede bericht herhaalt dezelfde deadline en opdrachtinformatie. | echte inbox, herhaling | `herhaling` |
+| W5-04 | **Onderwerp:** Uitnodiging voor Canva-groep. **Bericht:** Je wordt uitgenodigd voor de groep van een opleidingsonderdeel. | echte inbox, school | `doen` |
+| W5-05 | **Onderwerp:** Deadline gemist. **Bericht:** De eerste deadline is niet gehaald; het bericht legt mogelijke gevolgen voor het eindcijfer uit. | echte inbox, school | `doen` |
+| W5-06 | **Onderwerp:** Bedankt voor deelname aan masterclass. **Bericht:** De presentatie is toegevoegd en de afzender vraagt om feedback. | echte inbox, opleiding | `doen` |
+| W5-07 | **Onderwerp:** Feedback en planning groepsopdracht. **Bericht:** Een overzicht bevat coaching, feedbackmomenten en afspraken voor de groep. | echte inbox, school | `lezen` |
+| W5-08 | **Onderwerp:** Exameninformatie groep 1. **Bericht:** De case en praktische informatie voor groep 1 staan in het bericht. | echte inbox, examen | `lezen` |
+| W5-09 | **Onderwerp:** Exameninformatie groep 2. **Bericht:** De case en praktische informatie voor groep 2 staan in het bericht. | echte inbox, examen | `lezen` |
+| W5-10 | **Onderwerp:** Herinnering openstaand studiegeld. **Bericht:** Het bericht meldt dat een betaling nog ontbreekt en vraagt om opvolging. | echte inbox, administratie | `doen` |
+| W5-11 | **Onderwerp:** Nieuwe inleverdatum in Canvas. **Bericht:** De deadline van een opdracht is gewijzigd naar [datum]. | echte inbox, school | `lezen` |
+| W5-12 | **Onderwerp:** Franse conversatietafels. **Bericht:** Uitnodiging voor vrijwillige oefenmomenten Frans. | echte inbox, uitnodiging | `negeren` |
+| W5-13 | **Onderwerp:** Fout in digitaal werkboek. **Bericht:** Franstalige uitleg beschrijft een probleem in het werkboek en een mogelijke oplossing. | echte inbox, school | `lezen` |
+| W5-14 | **Onderwerp:** TrainTool installeren. **Bericht:** Instructies leggen uit hoe je TrainTool installeert en start. | echte inbox, software | `doen` |
+| W5-15 | **Onderwerp:** Inschrijving AI-masterclass bevestigd. **Bericht:** De inschrijving voor [datum] is succesvol geregistreerd. | echte inbox, bevestiging | `lezen` |
+| W5-16 | **Onderwerp:** Praktische instructie. **Bericht:** Een kort bericht geeft één praktische werkwijze zonder duidelijke deadline. | echte inbox, instructie | `doen` |
+| W5-17 | **Onderwerp:** Opdrachtinformatie. **Bericht:** Het bericht verwijst naar een deadline, maar de datum ontbreekt of is onduidelijk. | echte inbox, randgeval | `lezen` |
+| W5-18 | **Onderwerp:** Informatie over opdracht. **Bericht:** Het is niet duidelijk of de ontvanger zelf iets moet uitvoeren. | echte inbox, randgeval | `lezen` |
+| W5-19 | **Onderwerp:** Tegenstrijdige opdrachtinformatie. **Bericht:** Twee delen van het bericht noemen verschillende instructies of deadlines. | echte inbox, randgeval | `doen` |
+| W5-20 | **Onderwerp:** Onduidelijk bericht. **Bericht:** Afzender en bedoeling zijn onvoldoende duidelijk om betrouwbare actie af te leiden. | echte inbox, onzeker | `negeren` |
 
-- Run 1, v2: **9 on 10 correct (n = 10, 1 run)**. The only error was T01: F1 (wrong label with confidence).
-- Rerun, v3: **1 on 1 correct (n = 1, 1 run)**. T01 changed from `doen` to `lezen` after one targeted context change. This is evidence of an improvement on one case, not proof that v3 works generally.
+## Gebruik
+
+Deze twintig cases zijn de uitbreiding voor week 5. Ze zijn nog niet opgenomen
+in de v2/v3-score van 7–9/10; eerst moet de prompt met deze set worden gedraaid
+en moeten de labels per run worden geregistreerd. De oude T01–T10-set blijft
+behouden voor vergelijking met de eerdere metingen.
